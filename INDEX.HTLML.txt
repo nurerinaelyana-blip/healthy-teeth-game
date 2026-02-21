@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Teeth Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Video element to capture camera feed for MediaPipe -->
+    <video id="webcam" autoplay playsinline style="display: none;"></video>
+
+    <!-- Start Screen -->
+    <div id="start-screen" class="screen active">
+        <h1>Healthy Teeth Game!</h1>
+        <p>Tilt your head to choose if the food is good or bad for your teeth.</p>
+        <button id="start-button">Start Game</button>
+        <p class="loading-text" id="loading-text">Loading AI Model...</p>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen">
+        <div class="game-ui">
+            <div class="indicator left">
+                <h2>GOOD</h2>
+                <p>Tilt Left</p>
+            </div>
+            <div class="score-container">
+                <p>Score: <span id="score">0</span></p>
+            </div>
+            <div class="indicator right">
+                <h2>BAD</h2>
+                <p>Tilt Right</p>
+            </div>
+        </div>
+
+        <div class="food-container">
+            <img id="food-image" src="" alt="Food item">
+        </div>
+
+        <div id="feedback-overlay" class="feedback">
+            <h2 id="feedback-text"></h2>
+            <p id="explanation-text"></p>
+        </div>
+    </div>
+
+    <!-- End Screen -->
+    <div id="end-screen" class="screen">
+        <h1>Great Job!</h1>
+        <p>Your final score is: <span id="final-score">0</span></p>
+        <h2>Remember to brush your teeth twice a day!</h2>
+        <button id="play-again-button">Play Again</button>
+    </div>
+
+    <!-- MediaPipe and Game Logic Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
